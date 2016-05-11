@@ -1,0 +1,9 @@
+PRE_S’iM = trafficFlow -> isEmpty()
+
+POST_S’iM = if (state = heavyTraffic) then ((signal = green) AND (greenTime > 60))
+else if (state = lowTraffic) then ((signal = red) AND (greenTime <= 60))
+else if (state = highTraffic) then (direction = CHOOSE)
+else (direction = NO_CHOOSE)
+endif
+endif
+endif

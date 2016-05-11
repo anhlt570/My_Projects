@@ -1,0 +1,27 @@
+Context Optimizer inv self.amberTime = 5
+
+Context TrafficController::getTrafficFlow()
+pre: self.trafficFlow -> isEmpty()
+post: self.trafficFlow -> notEmpty()
+
+Context TrafficController::analyzeTraffic()
+pre: self.trafficFlow -> notEmpty()
+post: (state = heavyTraffic) OR (state = lowTraffic) OR (state = highTraffic) OR (state = noTraffic)
+
+Context Optimizer::analyzeSignal()
+pre: (state = heavyTraffic) OR (state = lowTraffic)
+post: if (state = heavyTraffic) then (signal = green)
+	else (signal = red)
+	endif
+
+Context Optimizer::analyzeTimeLimit()
+pre: (state = heavyTraffic) OR (state = lowTraffic)
+post: if (state = heavyTraffic) then (greenTime > 60)
+	else (greenTime <= 60)
+	endif
+
+Context Optimizer::analyzeAdjacentSignal()
+pre: (state = highTraffic) OR (state = noTraffic)
+post: if (state = highTraffic) then (direction = CHOOSE)
+	else (direction = NO_CHOOSE)
+	endif

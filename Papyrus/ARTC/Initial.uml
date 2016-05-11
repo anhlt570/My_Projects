@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_fvXyIPXIEeWX6JkCfGohug" name="Initial">
+  <packageMerge xmi:type="uml:PackageMerge" xmi:id="_oghh4PXMEeWX6JkCfGohug" mergedPackage="_fvXyIPXIEeWX6JkCfGohug"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_tDQDAPXIEeWX6JkCfGohug" name="Detector" visibility="public" isActive="true">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_Q0l_cPXJEeWX6JkCfGohug" name="detectorId">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_RJClcPXJEeWX6JkCfGohug" name="location">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_RZAUEPXJEeWX6JkCfGohug" name="roadId">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_RpoxEPXJEeWX6JkCfGohug" name="vehicleCount">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_R5RIgPXJEeWX6JkCfGohug" name="crossTime">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#Time"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_ZA_ZIPXJEeWX6JkCfGohug" name="vehicleSpeed">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+    </ownedAttribute>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_n9JPYPXJEeWX6JkCfGohug" name="active"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_oRvmYPXJEeWX6JkCfGohug" name="deactive"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_oma14PXJEeWX6JkCfGohug" name="sendTrafficFlow"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_o4SB8PXJEeWX6JkCfGohug" name="dectectVehicle"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_tTHrAPXIEeWX6JkCfGohug" name="TrafficController" isActive="true">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_zGwBEPXJEeWX6JkCfGohug" name="controllerId">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_zTomgPXJEeWX6JkCfGohug" name="location">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_z_ME8PXJEeWX6JkCfGohug" name="speedLimit">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_0Kn44PXJEeWX6JkCfGohug" name="roadId">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_0wnh4PXJEeWX6JkCfGohug" name="getTrafficFlow" concurrency="guarded" postcondition="_nNqPAPXQEeWX6JkCfGohug">
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_nNqPAPXQEeWX6JkCfGohug" name="Postcondition" visibility="private">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_wNM84PXQEeWX6JkCfGohug">
+          <language>OCL</language>
+          <body>Road.trafficFlow -> notEmpty()</body>
+        </specification>
+      </ownedRule>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_07WyQPXJEeWX6JkCfGohug" name="analyzeTraffic">
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_axWtEPXVEeWX6JkCfGohug" name="Constraint2">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_pKbrcPXVEeWX6JkCfGohug">
+          <language>OCL</language>
+          <body> (Optimizer.state = HEAVYTRAFFIC) or (Optimizer.state = LOWTRAFFIC) or (Optimizer.state =HIGHTRAFFIC) or (Optimizer.state = NOTRAFFIC)</body>
+        </specification>
+      </ownedRule>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_1L8zAPXJEeWX6JkCfGohug" name="setSignal"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_1WtRgPXJEeWX6JkCfGohug" name="setTime"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_tf3GgPXIEeWX6JkCfGohug" name="Road" isActive="true">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_91HoQPXJEeWX6JkCfGohug" name="roadId">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_-HBQkPXJEeWX6JkCfGohug" name="roadName">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_-PhsUPXJEeWX6JkCfGohug" name="roadLocation">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_-aiCcPXJEeWX6JkCfGohug" name="trafficFlow" type="_J5BI4PXTEeWX6JkCfGohug"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_86cvwPXJEeWX6JkCfGohug" name="setRoadDetail"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_9HlM0PXJEeWX6JkCfGohug" name="getRoadDetail"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_tr1F8PXIEeWX6JkCfGohug" name="Optimizer" isActive="true">
+    <ownedRule xmi:type="uml:Constraint" xmi:id="_CE0mEPXOEeWX6JkCfGohug" name="Constraint1">
+      <specification xmi:type="uml:OpaqueExpression" xmi:id="_RnQZMPXOEeWX6JkCfGohug">
+        <language>OCL</language>
+        <body>self.amberTime = 5&#xD;
+</body>
+      </specification>
+    </ownedRule>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_KxhNQPXKEeWX6JkCfGohug" name="amberTime">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_K9RKQPXKEeWX6JkCfGohug" name="greenTime">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_LK4IcPXKEeWX6JkCfGohug" name="state" type="_ROm2YPXTEeWX6JkCfGohug"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_LUxrUPXKEeWX6JkCfGohug" name="signal" type="_TXdZQPXTEeWX6JkCfGohug"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_Lfiw4PXKEeWX6JkCfGohug" name="duration">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_L1tOIPXKEeWX6JkCfGohug" name="cycleTime">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+    </ownedAttribute>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_Mgw9UPXKEeWX6JkCfGohug" name="analyzeSignal"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_MwdmMPXKEeWX6JkCfGohug" name="analyzeTimeLimit"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_M8iTUPXKEeWX6JkCfGohug" name="analyzeAdjacent"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Model" xmi:id="_yW-7kPXKEeWX6JkCfGohug" name="MyPrimitiveType">
+    <packagedElement xmi:type="uml:Class" xmi:id="_J5BI4PXTEeWX6JkCfGohug" name="Object" isAbstract="true"/>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_ROm2YPXTEeWX6JkCfGohug" name="STATE">
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_kq2zsPXTEeWX6JkCfGohug" name="HEAVYTRAFFIC"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_mKs10PXTEeWX6JkCfGohug" name="LOWTRAFFIC"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_pk5r0PXTEeWX6JkCfGohug" name="HIGHTRAFFIC"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_v74cAPXTEeWX6JkCfGohug" name="NOTRAFFIC"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_TXdZQPXTEeWX6JkCfGohug" name="SIGNAL">
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_gkBhMPXTEeWX6JkCfGohug" name="green"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_hsasoPXTEeWX6JkCfGohug" name="red"/>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_Y4Fp4PXLEeWX6JkCfGohug" memberEnd="_Y4GQ8fXLEeWX6JkCfGohug _Y4IGIPXLEeWX6JkCfGohug">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Y4Fp4fXLEeWX6JkCfGohug" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Y4GQ8PXLEeWX6JkCfGohug" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_Y4IGIPXLEeWX6JkCfGohug" name="trafficcontroller" type="_tTHrAPXIEeWX6JkCfGohug" association="_Y4Fp4PXLEeWX6JkCfGohug"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_Y4GQ8fXLEeWX6JkCfGohug" name="road" type="_tf3GgPXIEeWX6JkCfGohug" association="_Y4Fp4PXLEeWX6JkCfGohug"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_biOU4PXLEeWX6JkCfGohug" memberEnd="_biO78vXLEeWX6JkCfGohug _biQxIPXLEeWX6JkCfGohug">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_biO78PXLEeWX6JkCfGohug" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_biO78fXLEeWX6JkCfGohug" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_biQxIPXLEeWX6JkCfGohug" name="trafficcontroller" type="_tTHrAPXIEeWX6JkCfGohug" association="_biOU4PXLEeWX6JkCfGohug"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_biO78vXLEeWX6JkCfGohug" name="optimizer" type="_tr1F8PXIEeWX6JkCfGohug" association="_biOU4PXLEeWX6JkCfGohug"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_RBuGYPXSEeWX6JkCfGohug" memberEnd="_RBvUgPXSEeWX6JkCfGohug _RBxJsPXSEeWX6JkCfGohug">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_RButcPXSEeWX6JkCfGohug" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_RButcfXSEeWX6JkCfGohug" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_RBxJsPXSEeWX6JkCfGohug" name="detector" type="_tDQDAPXIEeWX6JkCfGohug" association="_RBuGYPXSEeWX6JkCfGohug"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_RBvUgPXSEeWX6JkCfGohug" name="trafficcontroller" type="_tTHrAPXIEeWX6JkCfGohug" association="_RBuGYPXSEeWX6JkCfGohug"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interaction" xmi:id="_LxczAPb4EeWfEMymmtgRdg" name="Interaction1" isActive="true" precondition="_SanTUPXPEeWX6JkCfGohug _Zt6TEPXVEeWX6JkCfGohug">
+    <ownedRule xmi:type="uml:Constraint" xmi:id="_SanTUPXPEeWX6JkCfGohug" name="Precondition" visibility="public">
+      <specification xmi:type="uml:OpaqueExpression" xmi:id="_WATnoPXPEeWX6JkCfGohug">
+        <language>OCL</language>
+        <body>&#xD;
+Road.trafficFlow -> isEmpty()</body>
+      </specification>
+    </ownedRule>
+    <ownedRule xmi:type="uml:Constraint" xmi:id="_Zt6TEPXVEeWX6JkCfGohug" name="Constraint1">
+      <specification xmi:type="uml:OpaqueExpression" xmi:id="_gq7IgPXVEeWX6JkCfGohug">
+        <language>OCL</language>
+        <body> Road.trafficFlow -> notEmpty()</body>
+      </specification>
+    </ownedRule>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_DR3Fofb6EeWfEMymmtgRdg" name="" type="_tDQDAPXIEeWX6JkCfGohug"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_Dtgf0fb6EeWfEMymmtgRdg" name="" type="_tTHrAPXIEeWX6JkCfGohug"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_EC0Bcfb6EeWfEMymmtgRdg" name="" type="_tr1F8PXIEeWX6JkCfGohug"/>
+    <lifeline xmi:type="uml:Lifeline" xmi:id="_DR3FoPb6EeWfEMymmtgRdg" name="" represents="_DR3Fofb6EeWfEMymmtgRdg" coveredBy="_JoAIUfb6EeWfEMymmtgRdg"/>
+    <lifeline xmi:type="uml:Lifeline" xmi:id="_Dtgf0Pb6EeWfEMymmtgRdg" name="" represents="_Dtgf0fb6EeWfEMymmtgRdg" coveredBy="_JoAIUvb6EeWfEMymmtgRdg _K8CjEfb6EeWfEMymmtgRdg _K8CjEvb6EeWfEMymmtgRdg _MuVAEPb6EeWfEMymmtgRdg _OOJNAfb6EeWfEMymmtgRdg _Pa4s8fb6EeWfEMymmtgRdg"/>
+    <lifeline xmi:type="uml:Lifeline" xmi:id="_EC0BcPb6EeWfEMymmtgRdg" name="" represents="_EC0Bcfb6EeWfEMymmtgRdg" coveredBy="_MuVnIPb6EeWfEMymmtgRdg _OOJNAvb6EeWfEMymmtgRdg _Pa4s8vb6EeWfEMymmtgRdg"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_Pa4s8vb6EeWfEMymmtgRdg" name="analyzeAdjacent_MessageRecv" covered="_EC0BcPb6EeWfEMymmtgRdg" message="_Pa4s8Pb6EeWfEMymmtgRdg"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_JoAIUfb6EeWfEMymmtgRdg" name="getTrafficFlow_MessageSend" covered="_DR3FoPb6EeWfEMymmtgRdg" message="_JoAIUPb6EeWfEMymmtgRdg"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_JoAIUvb6EeWfEMymmtgRdg" name="getTrafficFlow_MessageRecv" covered="_Dtgf0Pb6EeWfEMymmtgRdg" message="_JoAIUPb6EeWfEMymmtgRdg"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_K8CjEfb6EeWfEMymmtgRdg" name="analyzeTraffic_MessageSend" covered="_Dtgf0Pb6EeWfEMymmtgRdg" message="_K8CjEPb6EeWfEMymmtgRdg"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_K8CjEvb6EeWfEMymmtgRdg" name="analyzeTraffic_MessageRecv" covered="_Dtgf0Pb6EeWfEMymmtgRdg" message="_K8CjEPb6EeWfEMymmtgRdg"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_MuVAEPb6EeWfEMymmtgRdg" name="analyzeSignal_MessageSend" covered="_Dtgf0Pb6EeWfEMymmtgRdg" message="_MuUZAPb6EeWfEMymmtgRdg"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_MuVnIPb6EeWfEMymmtgRdg" name="analyzeSignal_MessageRecv" covered="_EC0BcPb6EeWfEMymmtgRdg" message="_MuUZAPb6EeWfEMymmtgRdg"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_OOJNAfb6EeWfEMymmtgRdg" name="analyzeTimeLimit_MessageSend" covered="_Dtgf0Pb6EeWfEMymmtgRdg" message="_OOJNAPb6EeWfEMymmtgRdg"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_OOJNAvb6EeWfEMymmtgRdg" name="analyzeTimeLimit_MessageRecv" covered="_EC0BcPb6EeWfEMymmtgRdg" message="_OOJNAPb6EeWfEMymmtgRdg"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_Pa4s8fb6EeWfEMymmtgRdg" name="analyzeAdjacent_MessageSend" covered="_Dtgf0Pb6EeWfEMymmtgRdg" message="_Pa4s8Pb6EeWfEMymmtgRdg"/>
+    <message xmi:type="uml:Message" xmi:id="_JoAIUPb6EeWfEMymmtgRdg" name="getTrafficFlow_Message" messageSort="asynchCall" receiveEvent="_JoAIUvb6EeWfEMymmtgRdg" sendEvent="_JoAIUfb6EeWfEMymmtgRdg" signature="_0wnh4PXJEeWX6JkCfGohug"/>
+    <message xmi:type="uml:Message" xmi:id="_K8CjEPb6EeWfEMymmtgRdg" name="analyzeTraffic_Message" messageSort="asynchCall" receiveEvent="_K8CjEvb6EeWfEMymmtgRdg" sendEvent="_K8CjEfb6EeWfEMymmtgRdg" signature="_07WyQPXJEeWX6JkCfGohug"/>
+    <message xmi:type="uml:Message" xmi:id="_MuUZAPb6EeWfEMymmtgRdg" name="analyzeSignal_Message" messageSort="asynchCall" receiveEvent="_MuVnIPb6EeWfEMymmtgRdg" sendEvent="_MuVAEPb6EeWfEMymmtgRdg" signature="_Mgw9UPXKEeWX6JkCfGohug"/>
+    <message xmi:type="uml:Message" xmi:id="_OOJNAPb6EeWfEMymmtgRdg" name="analyzeTimeLimit_Message" messageSort="asynchCall" receiveEvent="_OOJNAvb6EeWfEMymmtgRdg" sendEvent="_OOJNAfb6EeWfEMymmtgRdg" signature="_MwdmMPXKEeWX6JkCfGohug"/>
+    <message xmi:type="uml:Message" xmi:id="_Pa4s8Pb6EeWfEMymmtgRdg" name="analyzeAdjacent_Message" messageSort="asynchCall" receiveEvent="_Pa4s8vb6EeWfEMymmtgRdg" sendEvent="_Pa4s8fb6EeWfEMymmtgRdg" signature="_M8iTUPXKEeWX6JkCfGohug"/>
+  </packagedElement>
+</uml:Model>

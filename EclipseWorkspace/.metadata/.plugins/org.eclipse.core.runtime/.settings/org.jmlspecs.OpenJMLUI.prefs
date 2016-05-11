@@ -1,0 +1,4 @@
+eclipse.preferences.version=1
+openjml.defaultProver=cvc4
+openjml.prover.z3_4_3=D\:\\Sofwares\\z3-4.3.2-x64-win\\bin\\com.microsoft.z3.jar
+org.openjml.option.solvers=cvc4,simplify,yices2,z3_4_3

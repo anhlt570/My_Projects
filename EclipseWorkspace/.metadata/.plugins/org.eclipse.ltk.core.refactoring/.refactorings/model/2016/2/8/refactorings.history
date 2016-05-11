@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 3 elements to &apos;ARTC&apos;&#x0D;&#x0A;- Original project: &apos;model&apos;&#x0D;&#x0A;- Destination element: &apos;ARTC&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     mytypes.uml&#x0D;&#x0A;     artc_initial.uml&#x0D;&#x0A;     artc_evolution.uml" description="Copy files" element1="mytypes.uml" element2="artc_initial.uml" element3="artc_evolution.uml" files="3" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1455993586455" target="/ARTC" units="0" version="1.0"/>
+</session>

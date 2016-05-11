@@ -1,0 +1,7 @@
+PRE_S’iM = trafficFlow -> isEmpty()
+
+POST_S’iM = (state = heavyTraffic) implies ((signal = green) AND (greenTime > 60))
+			XOR (state = lowTraffic) implies ((signal = red) AND (greenTime <= 60))
+			XOR (state = highTraffic) implies (direction = CHOOSE)
+			XOR (state = 0)implies (direction = NO_CHOOSE)
+			

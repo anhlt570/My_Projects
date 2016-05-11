@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;Main_Window.java&apos; to &apos;ARTC_UI/src/com.tuananh.myATRC&apos;&#x0D;&#x0A;- Original project: &apos;ARTC_UI&apos;&#x0D;&#x0A;- Destination element: &apos;ARTC_UI/src/com.tuananh.myATRC&apos;&#x0D;&#x0A;- Original element: &apos;Main_Window.java&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="/src&lt;com.tuananh.myATRC" element1="/src&lt;{Main_Window.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1462989821260" units="1" version="1.0"/>
+</session>

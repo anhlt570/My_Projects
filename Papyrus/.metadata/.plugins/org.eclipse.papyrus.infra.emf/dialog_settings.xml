@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.papyrus.infra.emf.providers.EMFGraphicalContentProvider_history__platform:/resource/ARTC/Initial.uml:uml:Constraint:bodyCondition">
+	</section>
+	<section name="org.eclipse.papyrus.infra.emf.providers.EMFGraphicalContentProvider_history__platform:/resource/ARTC/Initial.uml:uml:Namespace:context">
+	</section>
+	<section name="org.eclipse.papyrus.infra.emf.providers.EMFGraphicalContentProvider_history__platform:/resource/ARTC/Initial.uml:uml:Behavior:method">
+	</section>
+	<section name="org.eclipse.papyrus.infra.emf.providers.EMFGraphicalContentProvider_history__platform:/resource/ARTC/Initial.uml:uml:Property:subsettedProperty">
+	</section>
+	<section name="org.eclipse.papyrus.infra.emf.providers.EMFGraphicalContentProvider_history__platform:/resource/ARTC/Initial.uml:uml:Type:type">
+		<section name="History">
+			<list key="PreviousSelection">
+				<item value="platform:/resource/ARTC/Initial.uml#_TXdZQPXTEeWX6JkCfGohug"/>
+				<item value="platform:/resource/ARTC/Initial.uml#_ROm2YPXTEeWX6JkCfGohug"/>
+				<item value="platform:/resource/ARTC/Initial.uml#_J5BI4PXTEeWX6JkCfGohug"/>
+				<item value="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+				<item value="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+				<item value="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#Time"/>
+			</list>
+		</section>
+	</section>
+	<section name="org.eclipse.papyrus.infra.emf.providers.EMFGraphicalContentProvider_history__platform:/resource/ARTC/Initial.uml:uml:Constraint:precondition">
+		<section name="History">
+			<list key="PreviousSelection">
+				<item value="platform:/resource/ARTC/Initial.uml#_SanTUPXPEeWX6JkCfGohug"/>
+				<item value="platform:/resource/ARTC/Initial.uml#_Zt6TEPXVEeWX6JkCfGohug"/>
+			</list>
+		</section>
+	</section>
+	<section name="org.eclipse.papyrus.infra.emf.customizationManager">
+	</section>
+	<section name="org.eclipse.papyrus.infra.emf.providers.EMFGraphicalContentProvider_history__platform:/resource/ARTC/Initial.uml:uml:Constraint:postcondition">
+		<section name="History">
+			<list key="PreviousSelection">
+				<item value="platform:/resource/ARTC/Initial.uml#_nNqPAPXQEeWX6JkCfGohug"/>
+			</list>
+		</section>
+	</section>
+	<section name="org.eclipse.papyrus.infra.emf.providers.EMFGraphicalContentProvider_history__platform:/resource/ARTC/Initial.uml:uml:PartDecomposition:decomposedAs">
+	</section>
+	<section name="org.eclipse.papyrus.infra.emf.providers.EMFGraphicalContentProvider_history__platform:/resource/ARTC/model.uml:uml:Type:type">
+		<section name="History">
+			<list key="PreviousSelection">
+				<item value="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#Time"/>
+				<item value="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+				<item value="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+				<item value="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+				<item value="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+			</list>
+		</section>
+	</section>
+	<section name="org.eclipse.papyrus.infra.emf.providers.EMFGraphicalContentProvider_history__platform:/resource/ARTC/Initial.uml:uml:ConnectableElement:represents">
+	</section>
+	<section name="org.eclipse.papyrus.infra.emf.providers.EMFGraphicalContentProvider_history__uml:Package:mergedPackage">
+		<section name="History">
+			<list key="PreviousSelection">
+				<item value="platform:/resource/ARTC/Initial.uml#_fvXyIPXIEeWX6JkCfGohug"/>
+			</list>
+		</section>
+	</section>
+	<section name="org.eclipse.papyrus.infra.emf.providers.EMFGraphicalContentProvider_history__uml:Element:constrainedElement">
+	</section>
+	<section name="org.eclipse.papyrus.infra.emf.providers.EMFGraphicalContentProvider_history__platform:/resource/ARTC/model.uml:uml:Property:subsettedProperty">
+	</section>
+	<section name="org.eclipse.papyrus.infra.emf.providers.EMFGraphicalContentProvider_history__platform:/resource/ARTC/Initial.uml:uml:Package:mergedPackage">
+	</section>
+</section>

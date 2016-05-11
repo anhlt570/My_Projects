@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;ARTC/Models/evolution PRE and POST&apos; to &apos;Evolution PRE and POST&apos;" description="Rename resource &apos;evolution PRE and POST&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Models/evolution PRE and POST" name="Evolution PRE and POST" stamp="1456626478883" updateReferences="true"/>
+</session>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_mcm_4NewEeWrS8xqpoPiHQ" name="Primitive Types">
+  <packagedElement xmi:type="uml:Package" xmi:id="_AEaLYNevEeWrS8xqpoPiHQ">
+    <name xsi:nil="true"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_8DLxoNeuEeWrS8xqpoPiHQ" name="STATE"/>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_EJmfINevEeWrS8xqpoPiHQ" name="SIGNAL"/>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_vWp0oNeuEeWrS8xqpoPiHQ" name="Object"/>
+</uml:Model>

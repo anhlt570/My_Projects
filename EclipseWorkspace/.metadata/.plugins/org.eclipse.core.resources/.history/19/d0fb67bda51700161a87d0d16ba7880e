@@ -1,0 +1,26 @@
+package com.tuananh.myATRC;
+
+import com.microsoft.z3.*;
+import java.util.*;
+
+public class Validation 
+{
+	@SuppressWarnings("serial")
+    class TestFailedException extends Exception
+    {
+        public TestFailedException()
+        {
+            super("Check FAILED");
+        }
+    };
+    
+    void disprove(Context ctx, BoolExpr f, boolean useMBQI,
+            BoolExpr... assumptions) throws TestFailedException
+    {
+        
+    }
+	public static void main(String [] args)
+	{
+		
+	}
+}

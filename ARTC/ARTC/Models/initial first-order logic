@@ -1,0 +1,5 @@
+[PRE_SiM] = trafficFlow = emptySet
+[POST_SiM] = (state = HEAVYTRAFFIC) AND (signal = GREEN) AND (greenTime>60)
+			XOR (state = LOWTRAFFIC) AND ((signal = RED) AND (greenTime <= 60))
+			XOR (state = HIGHTRAFFIC) AND (direction = CHOOSE)
+			XOR (state = NOTTRAFFIC) AND (direction = NO_CHOOSE)
