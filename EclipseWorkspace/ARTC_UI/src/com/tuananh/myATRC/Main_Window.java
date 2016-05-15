@@ -14,29 +14,34 @@ import org.eclipse.swt.widgets.MenuItem;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.jface.viewers.CheckboxTableViewer;
+import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.graphics.Point;
+import swing2swt.layout.BoxLayout;
+import org.eclipse.swt.layout.RowLayout;
+import org.eclipse.swt.widgets.Combo;
 
 public class Main_Window {
 
 	protected Shell shell;
-	private Text text;
-	private Text text_1;
-	private Text text_3;
 	private Label lblNewLabel;
 	private Label lblNewLabel_1;
 	private Label lblNewLabel_2;
 	private Label lblNewLabel_3;
 	private Button btnResult;
 	private Button btnExit;
-	private Text text_2;
-	private Text text_4;
-	private Label lblInitialInvarants;
-	private Text text_6;
 	private Label lblEvolutionInvarants;
-	private Text text_5;
 	private final FormToolkit formToolkit = new FormToolkit(Display.getDefault());
-	private Button cbPreserve;
+	private Label lblInitialInvarants;
+	private Text tIniInvarants;
+	private Text tIniPreconditions;
+	private Text tIniPostconditions;
+	private Text tEvoPreconditions;
+	private Text tEvoInvarants;
+	private Text tEvoPostconditions;
+	private Text tResult;
+	private Button btnCheck;
 
 	/**
 	 * Launch the application.
@@ -70,143 +75,138 @@ public class Main_Window {
 	 * Create contents of the window.
 	 */
 	protected void createContents() {
+		Validation val = new Validation();
+		Reader tr= new Reader();
 		shell = new Shell();
-		shell.setSize(533, 320);
+		shell.setMinimumSize(new Point(800, 600));
+		shell.setSize(800, 577);
 		shell.setText("SWT Application");
-		shell.setLayout(new GridLayout(9, false));
+		shell.setLayout(new GridLayout(4, false));
 		
 		lblInitialInvarants = new Label(shell, SWT.NONE);
-		lblInitialInvarants.setAlignment(SWT.CENTER);
-		GridData gd_lblInitialInvarants = new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1);
-		gd_lblInitialInvarants.widthHint = 73;
-		lblInitialInvarants.setLayoutData(gd_lblInitialInvarants);
+		lblInitialInvarants.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false, 1, 1));
 		lblInitialInvarants.setText("Initial Invarants");
+		formToolkit.adapt(lblInitialInvarants, true, true);
 		
-		text_6 = new Text(shell, SWT.BORDER);
-		GridData gd_text_6 = new GridData(SWT.FILL, SWT.CENTER, true, false, 3, 1);
-		gd_text_6.widthHint = 154;
-		gd_text_6.heightHint = 51;
-		text_6.setLayoutData(gd_text_6);
+		tIniInvarants = new Text(shell, SWT.BORDER | SWT.WRAP | SWT.H_SCROLL | SWT.V_SCROLL | SWT.CANCEL | SWT.MULTI);
+		GridData gd_tIniInvarants = new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1);
+		gd_tIniInvarants.heightHint = 107;
+		gd_tIniInvarants.widthHint = 207;
+		tIniInvarants.setLayoutData(gd_tIniInvarants);
+		formToolkit.adapt(tIniInvarants, true, true);
 		
 		lblEvolutionInvarants = new Label(shell, SWT.NONE);
-		lblEvolutionInvarants.setAlignment(SWT.CENTER);
-		GridData gd_lblEvolutionInvarants = new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1);
-		gd_lblEvolutionInvarants.widthHint = 63;
-		lblEvolutionInvarants.setLayoutData(gd_lblEvolutionInvarants);
+		lblEvolutionInvarants.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
 		lblEvolutionInvarants.setText("Evolution Invarants");
 		
-		text_5 = new Text(shell, SWT.BORDER);
-		GridData gd_text_5 = new GridData(SWT.FILL, SWT.CENTER, true, false, 3, 1);
-		gd_text_5.widthHint = 128;
-		gd_text_5.heightHint = 51;
-		text_5.setLayoutData(gd_text_5);
-		
-		cbPreserve = new Button(shell, SWT.CHECK);
-		cbPreserve.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, true, false, 1, 1));
-		cbPreserve.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-			}
-		});
-		formToolkit.adapt(cbPreserve, true, true);
+		tEvoInvarants = new Text(shell, SWT.BORDER | SWT.WRAP | SWT.H_SCROLL | SWT.V_SCROLL | SWT.CANCEL | SWT.MULTI);
+		GridData gd_tEvoInvarants = new GridData(SWT.FILL, SWT.TOP, true, false, 1, 1);
+		gd_tEvoInvarants.heightHint = 107;
+		tEvoInvarants.setLayoutData(gd_tEvoInvarants);
+		formToolkit.adapt(tEvoInvarants, true, true);
 		
 		lblNewLabel = new Label(shell, SWT.NONE);
-		lblNewLabel.setAlignment(SWT.CENTER);
-		GridData gd_lblNewLabel = new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1);
-		gd_lblNewLabel.heightHint = 14;
-		gd_lblNewLabel.widthHint = 78;
-		lblNewLabel.setLayoutData(gd_lblNewLabel);
-		lblNewLabel.setText("Initial Precondition");
+		lblNewLabel.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false, 1, 1));
+		lblNewLabel.setText("Initial Preconditions");
 		
-		text = new Text(shell, SWT.BORDER);
-		text.setFont(SWTResourceManager.getFont("Arial", 10, SWT.NORMAL));
-		GridData gd_text = new GridData(SWT.FILL, SWT.FILL, true, false, 3, 1);
-		gd_text.widthHint = 154;
-		gd_text.heightHint = 53;
-		text.setLayoutData(gd_text);
+		tIniPreconditions = new Text(shell, SWT.BORDER | SWT.WRAP | SWT.H_SCROLL | SWT.V_SCROLL | SWT.CANCEL | SWT.MULTI);
+		GridData gd_tIniPreconditions = new GridData(SWT.FILL, SWT.TOP, false, false, 1, 1);
+		gd_tIniPreconditions.heightHint = 149;
+		gd_tIniPreconditions.widthHint = 207;
+		tIniPreconditions.setLayoutData(gd_tIniPreconditions);
+		formToolkit.adapt(tIniPreconditions, true, true);
 		
 		lblNewLabel_1 = new Label(shell, SWT.NONE);
-		lblNewLabel_1.setAlignment(SWT.CENTER);
-		GridData gd_lblNewLabel_1 = new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1);
-		gd_lblNewLabel_1.widthHint = 89;
-		gd_lblNewLabel_1.heightHint = 14;
-		lblNewLabel_1.setLayoutData(gd_lblNewLabel_1);
-		lblNewLabel_1.setText("Evolution Precondition");
+		lblNewLabel_1.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
+		lblNewLabel_1.setText("Evolution Preconditions");
 		
-		text_4 = new Text(shell, SWT.BORDER);
-		GridData gd_text_4 = new GridData(SWT.FILL, SWT.CENTER, true, false, 3, 1);
-		gd_text_4.widthHint = 128;
-		gd_text_4.heightHint = 53;
-		text_4.setLayoutData(gd_text_4);
-		new Label(shell, SWT.NONE);
+		tEvoPreconditions = new Text(shell, SWT.BORDER | SWT.WRAP | SWT.H_SCROLL | SWT.V_SCROLL | SWT.CANCEL | SWT.MULTI);
+		tEvoPreconditions.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1));
+		formToolkit.adapt(tEvoPreconditions, true, true);
 		
 		lblNewLabel_2 = new Label(shell, SWT.NONE);
-		lblNewLabel_2.setAlignment(SWT.CENTER);
-		GridData gd_lblNewLabel_2 = new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1);
-		gd_lblNewLabel_2.widthHint = 73;
-		lblNewLabel_2.setLayoutData(gd_lblNewLabel_2);
-		lblNewLabel_2.setText("Initial Postcondition");
+		lblNewLabel_2.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
+		lblNewLabel_2.setText("Initial Postconditions");
 		
-		text_1 = new Text(shell, SWT.BORDER);
-		text_1.setFont(SWTResourceManager.getFont("Arial", 10, SWT.NORMAL));
-		GridData gd_text_1 = new GridData(SWT.FILL, SWT.FILL, true, false, 3, 1);
-		gd_text_1.widthHint = 154;
-		gd_text_1.heightHint = 54;
-		text_1.setLayoutData(gd_text_1);
+		tIniPostconditions = new Text(shell, SWT.BORDER | SWT.WRAP | SWT.H_SCROLL | SWT.V_SCROLL | SWT.CANCEL | SWT.MULTI);
+		GridData gd_tIniPostconditions = new GridData(SWT.FILL, SWT.TOP, false, false, 1, 1);
+		gd_tIniPostconditions.heightHint = 149;
+		gd_tIniPostconditions.widthHint = 207;
+		tIniPostconditions.setLayoutData(gd_tIniPostconditions);
+		formToolkit.adapt(tIniPostconditions, true, true);
 		
 		lblNewLabel_3 = new Label(shell, SWT.NONE);
-		lblNewLabel_3.setAlignment(SWT.CENTER);
-		lblNewLabel_3.setText("Evolution Postcondition");
-		GridData gd_lblNewLabel_3 = new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1);
-		gd_lblNewLabel_3.widthHint = 89;
-		lblNewLabel_3.setLayoutData(gd_lblNewLabel_3);
+		lblNewLabel_3.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
+		lblNewLabel_3.setText("Evolution Postconditions");
 		
-		text_2 = new Text(shell, SWT.BORDER);
-		GridData gd_text_2 = new GridData(SWT.FILL, SWT.CENTER, true, false, 3, 1);
-		gd_text_2.widthHint = 128;
-		gd_text_2.heightHint = 54;
-		text_2.setLayoutData(gd_text_2);
-		new Label(shell, SWT.NONE);
+		tEvoPostconditions = new Text(shell, SWT.BORDER | SWT.WRAP | SWT.H_SCROLL | SWT.V_SCROLL | SWT.CANCEL | SWT.MULTI);
+		tEvoPostconditions.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1));
+		formToolkit.adapt(tEvoPostconditions, true, true);
 		
 		btnResult = new Button(shell, SWT.NONE);
-		GridData gd_btnResult = new GridData(SWT.CENTER, SWT.CENTER, false, false, 1, 1);
-		gd_btnResult.widthHint = 73;
-		btnResult.setLayoutData(gd_btnResult);
+		btnResult.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false, 1, 1));
 		btnResult.setText("Result");
+		btnResult.addSelectionListener(new SelectionAdapter() 
+		{
+			public void widgetSelected(SelectionEvent e)
+			{
+				String tmp1= tIniInvarants.getText();
+				String tmp2= tEvoInvarants.getText();
+				//tResult.setText("SATISFIABLE");
+				if(val.checkInvarants(tmp1, tmp2)) 
+				{
+					tResult.setText("SATISFIABLE");
+				}
+				else
+				{
+					tResult.setText("UN_SATISFIABLE");
+				}
+			}
+		});
 		
-		text_3 = new Text(shell, SWT.BORDER);
-		text_3.setFont(SWTResourceManager.getFont("Arial", 10, SWT.NORMAL));
-		GridData gd_text_3 = new GridData(SWT.FILL, SWT.CENTER, true, false, 6, 1);
-		gd_text_3.widthHint = 294;
-		gd_text_3.heightHint = 18;
-		text_3.setLayoutData(gd_text_3);
-		new Label(shell, SWT.NONE);
-		new Label(shell, SWT.NONE);
-		new Label(shell, SWT.NONE);
-		new Label(shell, SWT.NONE);
-		new Label(shell, SWT.NONE);
-		new Label(shell, SWT.NONE);
-		new Label(shell, SWT.NONE);
-		new Label(shell, SWT.NONE);
-		new Label(shell, SWT.NONE);
-		
-		btnExit = new Button(shell, SWT.NONE);
-		GridData gd_btnExit = new GridData(SWT.CENTER, SWT.CENTER, false, false, 1, 1);
-		gd_btnExit.heightHint = 25;
-		gd_btnExit.widthHint = 77;
-		btnExit.setLayoutData(gd_btnExit);
-		btnExit.setText("Exit");
-		
+		tResult = new Text(shell, SWT.BORDER | SWT.WRAP | SWT.H_SCROLL | SWT.V_SCROLL | SWT.CANCEL | SWT.MULTI);
+		GridData gd_tResult = new GridData(SWT.FILL, SWT.CENTER, true, false, 3, 1);
+		gd_tResult.heightHint = 60;
+		tResult.setLayoutData(gd_tResult);
+		formToolkit.adapt(tResult, true, true);
 		Menu menu = new Menu(shell, SWT.BAR);
 		shell.setMenuBar(menu);
 		
 		MenuItem miFile = new MenuItem(menu, SWT.NONE);
 		miFile.setText("File");
 		
-		
 		MenuItem miAbout = new MenuItem(menu, SWT.NONE);
 		miAbout.setText("About");
+		Label label = new Label(shell, SWT.NONE);
+		formToolkit.adapt(label, true, true);
+		
+		btnCheck = new Button(shell, SWT.NONE);
+		btnCheck.addSelectionListener(new SelectionAdapter() 
+		{
+			@Override
+			public void widgetSelected(SelectionEvent e) 
+			{
+				String tmp= tEvoPostconditions.getText();
+				tmp= tr.standardizedText(tmp);
+				tIniPostconditions.setText(tmp);
+			}
+		});
+		formToolkit.adapt(btnCheck, true, true);
+		btnCheck.setText("Check");
 		new Label(shell, SWT.NONE);
-
+		
+		btnExit = new Button(shell, SWT.PUSH);
+		GridData gd_btnExit = new GridData(SWT.RIGHT, SWT.CENTER, false, false, 0, 1);
+		gd_btnExit.horizontalIndent = 1;
+		btnExit.setLayoutData(gd_btnExit);
+		btnExit.setAlignment(SWT.LEFT);
+		btnExit.setText("     Exit     ");
+		btnExit.addSelectionListener(new SelectionAdapter() 
+		{
+			public void widgetSelected(SelectionEvent e)
+			{
+				System.exit(0);
+			}
+		});
 	}
 }
