@@ -187,7 +187,7 @@ public class Main_Window {
 			public void widgetSelected(SelectionEvent e) 
 			{
 				String tmp= tEvoPostconditions.getText();
-				tmp= tr.standardizedText(tmp);
+				tmp= tr.analyzeText(tmp);
 				tIniPostconditions.setText(tmp);
 			}
 		});
