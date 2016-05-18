@@ -2,25 +2,22 @@ package com.tuananh.myATRC;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Text;
-import org.eclipse.wb.swt.SWTResourceManager;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.MenuItem;
 import org.eclipse.ui.forms.widgets.FormToolkit;
-import org.eclipse.swt.widgets.Table;
-import org.eclipse.jface.viewers.CheckboxTableViewer;
-import org.eclipse.swt.events.MouseEvent;
+
+import com.microsoft.z3.Context;
+import com.microsoft.z3.Z3Exception;
+
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.Point;
-import swing2swt.layout.BoxLayout;
-import org.eclipse.swt.layout.RowLayout;
-import org.eclipse.swt.widgets.Combo;
+
 
 public class Main_Window {
 
@@ -187,7 +184,16 @@ public class Main_Window {
 			public void widgetSelected(SelectionEvent e) 
 			{
 				String tmp= tEvoPostconditions.getText();
-				tmp= tr.analyzeText(tmp);
+				try
+				{
+					Context ctx= new Context();
+					tr.generateExprFromString(ctx, tmp);
+				}
+				catch (Z3Exception e1)
+				{
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				tIniPostconditions.setText(tmp);
 			}
 		});
